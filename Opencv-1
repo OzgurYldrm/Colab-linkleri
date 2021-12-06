@@ -1,0 +1,28 @@
+import cv2
+import numpy as np
+from google.colab.patches import cv2_imshow
+resim = cv2.imread("Atlantis.jpg")
+resim[0][0][0]
+cv2_imshow(resim)
+print(resim.shape)
+print(resim)
+resim.size
+resim[719][0]
+resim[0][0][0]
+resim.item(0,0,0)
+resim_resized = cv2.resize(resim,(640,360)) #tuple'ın ilk elemanı x için, ikinci elemanı y için
+cv2_imshow(resim_resized)
+print(resim_resized.shape)
+resim2 = cv2.cvtColor(resim,cv2.COLOR_RGB2BGR)
+cv2_imshow(resim2)
+resim3 = cv2.cvtColor(resim,cv2.COLOR_RGB2GRAY)
+cv2_imshow(resim3)
+print(resim3.shape)
+black = np.zeros((512,512,3),np.uint8)
+white = np.ones((512,512,3),np.uint8)*255
+cv2_imshow(black)
+print(black.shape)
+print(black)
+cv2_imshow(white)
+print(white.shape)
+print(white)
