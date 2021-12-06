@@ -1,0 +1,84 @@
+import cv2
+import numpy as np
+from google.colab.patches import cv2_imshow
+drone = cv2.imread("drone.jpg")
+drone2 = cv2.imread("drone.jpg")
+yol = cv2.imread("yol.jpg")
+top = cv2.imread("top.jpg")
+renk = (0,0,255) ##BGR
+cv2.arrowedLine(yol,
+         (558,629),
+         (593,305),
+         renk,
+         6)
+cv2_imshow(yol)
+renk = (0,255,255) ##BGR
+cv2.line(yol,
+         (593,305),
+         (558,629),
+         renk,
+         6)
+cv2_imshow(yol)
+renk = (0,255,255) ##BGR
+cv2.rectangle(drone,
+         (341,154),
+         (928,571),
+         renk,
+         6)
+cv2_imshow(drone)
+renk = (0,255,255) ##BGR
+cv2.rectangle(drone2,
+         (933,156),
+         (340,570),
+         renk,
+         6)
+cv2_imshow(drone2)
+renk = (0,0,255) ##BGR
+cv2.circle(top,
+         (472,317),
+         250,
+         renk,
+         5)
+cv2_imshow(top)
+renk = (0,0,255) ##BGR
+cv2.ellipse(top,
+           (477,316),  ##center coordinates
+           (220,225),   ##axes lenght  (x yarıçap,y yarıçap)
+           30,          ##angle
+           0,          ##start angle
+           360,        ##finish angle
+           renk,
+           -1)
+cv2_imshow(top)
+white = np.ones((512,512,3),np.uint8)*255
+renk = (0,0,255) ##BGR
+cv2.ellipse(white,
+           (256,256),  ##center coordinates
+           (200,50),   ##axes lenght  (x yarıçap,y yarıçap)
+           90,          ##angle
+           0,          ##start angle
+           360,        ##finish angle
+           renk,
+           5)
+cv2_imshow(white)
+white = np.ones((512,512,3),np.uint8)*255
+renk = (0,0,255) ##BGR
+for i in [15,30,45,60,75,90,105,120,135,150,165,180]:
+  cv2.ellipse(white,
+           (256,256),  ##center coordinates
+           (200,50),   ##axes lenght  (x yarıçap,y yarıçap)
+           i,          ##angle
+           0,          ##start angle
+           360,        ##finish angle
+           renk,
+           5)
+cv2_imshow(white)
+renk = (0,0,255) ##BGR
+cv2.putText(drone,
+         "Drone Tespit Edildi",
+         (0,100),
+         cv2.FONT_HERSHEY_COMPLEX,
+         3,
+         renk
+         )
+cv2_imshow(drone)
